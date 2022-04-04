@@ -49,7 +49,7 @@ app.post("/addPet",(req,res) =>{
 
             data["pet"+(lastid+1)] = newPet;
 
-            let newjson = JSON.stringify(data);
+            let newjson = JSON.stringify(data,null,'\t');
             fs.writeFile(__dirname + "/" + "pets.json",newjson, err => {
                 if(err){
                     console.log(err);
@@ -65,7 +65,7 @@ app.post("/addPet",(req,res) =>{
     });
 });
 
-app.put("/updatepet/:pet",(req,res) =>{
+app.put("/updatePet/:pet",(req,res) =>{
     fs.readFile(__dirname + "/" + "pets.json","utf8",(err,data) => {
         data = JSON.parse(data);
         const {name,type,owner,color} = req.body;
@@ -77,7 +77,7 @@ app.put("/updatepet/:pet",(req,res) =>{
             if(owner) data[req.params.pet]["owner"] = owner;
             if(color) data[req.params.pet]["color"] = color;
     
-            let newjson = JSON.stringify(data);
+            let newjson = JSON.stringify(data,null,'\t');
             fs.writeFile(__dirname + "/" + "pets.json",newjson, err => {
                 if(err){
                     console.log(err);
@@ -100,7 +100,7 @@ app.delete("/deletePet/:pet",(req,res) =>{
         if(data[req.params.pet]){
             delete data[req.params.pet];
 
-            let newjson = JSON.stringify(data);
+            let newjson = JSON.stringify(data,null,'\t');
             fs.writeFile(__dirname + "/" + "pets.json",newjson, err => {
                 if(err){
                     console.log(err);

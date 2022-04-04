@@ -1,1 +1,16 @@
-{"pet1":{"name":"coco","type":"cat","owner":"Itzel","color":"white","id":1},"pet2":{"name":"pipo","type":"dog","owner":"Ruy","color":"brown","id":2}}
+{
+	"pet1": {
+		"name": "Pepe",
+		"type": "cat",
+		"owner": "Itzel",
+		"color": "white",
+		"id": 1
+	},
+	"pet2": {
+		"name": "pipo",
+		"type": "dog",
+		"owner": "Ruy",
+		"color": "brown",
+		"id": 2
+	}
+}
