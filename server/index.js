@@ -16,7 +16,6 @@ app.get("/api", (req, res) =>{
 app.get("/pets",(req,res) => {
     //callback function (err,data) =>
     fs.readFile(__dirname + "/" + "pets.json","utf8",(err,data) => {
-        console.log(data);
         res.end(data);
     });
 });
@@ -77,8 +76,6 @@ app.put("/updatepet/:pet",(req,res) =>{
             if(type) data[req.params.pet]["type"] = type;
             if(owner) data[req.params.pet]["owner"] = owner;
             if(color) data[req.params.pet]["color"] = color;
-
-            console.log(data);
     
             let newjson = JSON.stringify(data);
             fs.writeFile(__dirname + "/" + "pets.json",newjson, err => {
