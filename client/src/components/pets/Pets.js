@@ -9,8 +9,7 @@ const Pets = () => {
     const {pets,getPets} = petContext;
     useEffect(() => {
         getPets();
-        //eslint-diable-next-line
-    },[]);
+    },[pets]);
 
     return (
         <Fragment>
