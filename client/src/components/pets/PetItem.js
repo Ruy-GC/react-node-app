@@ -1,14 +1,17 @@
 import React from 'react'
 
-function petItem() {
+const petItem = ({pet}) => {
+
+    const {name,type,owner,color} = pet;
+    console.log(pet)
     return (
         <div className='card bg-light'>
             <div className='grid-2'>
                 <span className='data-container'>
-                    <h3 className='card-content'>Pipo</h3>
-                    <h4 className='card-content'>Dog</h4>
-                    <h4 className='card-content'>Ruy</h4>
-                    <h4 className='card-content'>Brown/Black</h4>   
+                    <h3 className='card-content'>{name}</h3>
+                    <h4 className='card-content'>{type}</h4>
+                    <h4 className='card-content'>{owner}</h4>
+                    <h4 className='card-content'>{color}</h4>   
                 </span>
                 <span>
                     <img 

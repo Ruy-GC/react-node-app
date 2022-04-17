@@ -1,19 +1,29 @@
-import React from 'react'
+import React,{Fragment,useContext,useEffect} from 'react'
+import PetContext from '../../Context/petContext'
 import PetItem from './PetItem'
+import { v4 as uuidv4 } from 'uuid';
 
-const pets = () => {
-  return (
-    <div className='grid-2'>
-        <div>
-            Pet Form
-        </div>
-        <div>
-            <PetItem></PetItem>
-            <PetItem></PetItem>
-        </div>
-    
-    </div>
-  )
+const Pets = () => {
+
+    const petContext = useContext(PetContext)
+    const {pets,getPets} = petContext;
+    useEffect(() => {
+        getPets();
+        //eslint-diable-next-line
+    },[]);
+
+    return (
+        <Fragment>
+            
+            {pets !== null ? 
+                Object.keys(pets).map(pet => (
+                    <PetItem key = {uuidv4()} pet = {pets[pet]}/>
+                ))
+            :
+                <h2>No pets registered</h2>
+            }
+        </Fragment>
+    )
 }
 
-export default pets
+export default Pets
