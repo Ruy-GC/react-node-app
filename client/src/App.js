@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {React, useEffect, useState} from 'react';
+import Pets from './components/pets/Pets'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                     Learn React
                 </a>
             </header>
+            <Pets></Pets>
         </div>
     );
 }
