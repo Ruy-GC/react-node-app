@@ -12,5 +12,12 @@
 		"owner": "Ruy",
 		"color": "brown",
 		"id": 2
+	},
+	"pet3": {
+		"name": "Missi",
+		"type": "Dog",
+		"owner": "Ruy",
+		"color": "White",
+		"id": 3
 	}
 }

@@ -16,7 +16,7 @@ function App() {
     return (
         <PetState>
             <div className="App">
-                <header className="App-header">
+                {/*<header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>
                         {!data ? "Loading..." : data}
@@ -29,7 +29,7 @@ function App() {
                     >
                         Learn React
                     </a>
-                </header>
+                </header>*/}
                 <Home/>
             </div>
         </PetState>

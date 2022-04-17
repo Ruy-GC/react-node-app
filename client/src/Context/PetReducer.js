@@ -1,6 +1,7 @@
 import {
     ADD_PET,
-    GET_PETS
+    GET_PETS,
+    PET_ERROR
 } from './types';
 
 export default(state,action) => {
@@ -11,6 +12,16 @@ export default(state,action) => {
                 pets: action.payload,
 
             };
+        case ADD_PET:
+            return{
+                ...state,
+                pets:action.payload
+            };
+        case PET_ERROR:
+            return{
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

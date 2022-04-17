@@ -40,37 +40,80 @@
 .card{
   border: #ccc 2px solid;
   border-radius: 25px;
-  margin: 5% ;
   background: rgb(221, 219, 219);
-  height: 350px;
-  width: 90%;
+  height: 200px;
+  width: 80%;
+  margin-bottom: 3%;
 }
-
-/*.btn-light,
-.bg-light,
-.badge-light,
-.alert-light {
-  background: var(--light-color);
-  color: #333;
-}*/
 
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
-  margin: 25px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .card-content{
   text-align: left;
-  font-size: 28px;
+  font-size: 18px;
+  margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 .pet-photo{
   display:inline;
   border-radius: 25px;
-  width: 80%;
+  width: 60%;
   border: rgb(0, 0, 0) 1px solid;
+  margin: 0px;
+}
+
+#pet-card{
+  margin: 25px;
+}
+
+input {
+  margin: 1.2rem 0;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+input[type='submit'] {
+  font: inherit;
+  font-weight: bold;
+  padding: 10px;
+  width: 100px;
+  background-color: #003699;
+  color: white;
+  border-radius: 20px;
+  border: none;
+}
+
+input[type='submit']:active{
+  transform: scale(0.85);
+  box-shadow: 3px 2px 25px 1px rgba(0,0,0,0.25);
+}
+
+.pet-form{
+  width: 80%;
 }
 
 @media (max-width: 1000px) {

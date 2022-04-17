@@ -9,12 +9,13 @@ const Pets = () => {
     const {pets,getPets} = petContext;
     useEffect(() => {
         getPets();
-    },[pets]);
+        //eslint-disable-next-line
+    },[]);
 
     return (
         <Fragment>
-            
-            {pets !== null ? 
+            <h1>Registered Pets</h1>
+            {pets.lenght !== 0 ? 
                 Object.keys(pets).map(pet => (
                     <PetItem key = {uuidv4()} pet = {pets[pet]}/>
                 ))
