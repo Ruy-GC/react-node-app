@@ -9,9 +9,13 @@ const petItem = ({pet}) => {
             <div className='grid-2' id='pet-card'>
                 <span className='data-container'>
                     <h3 className='card-content'>Name: {name}</h3>
+                    <hr/>
                     <h4 className='card-content'>Type: {type}</h4>
+                    <hr/>
                     <h4 className='card-content'>Owner: {owner}</h4>
-                    <h4 className='card-content'>Color: {color}</h4>   
+                    <hr/>
+                    <h4 className='card-content'>Color: {color}</h4> 
+                    <hr/>  
                 </span>
                 <span>
                     <img 
