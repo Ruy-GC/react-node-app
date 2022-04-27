@@ -1,6 +1,7 @@
 //importar express
 const express = require("express");
 const fs = require("fs");
+const path = require('path');
 
 //establecer puerto donde se va a correr el servidor
 const PORT = process.env.PORT || 3001;
@@ -8,14 +9,35 @@ const PORT = process.env.PORT || 3001;
 //inicializa el servidor de express
 const app = express();
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+//config sql
+var mysql = require('mysql')
+
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Pipo7274!",
+    database: 'pets'
+  });
+  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
 
 app.get("/api", (req, res) =>{
     res.json({message: "hello from server side"});
 });
 
 app.get("/pets",(req,res) => {
+    con.query("SELECT * FROM petdata", function (err, result) {
+        if (err) throw err;
+        //res.json(JSON.stringify(result));
+    });
     //callback function (err,data) =>
     fs.readFile(__dirname + "/" + "pets.json","utf8",(err,data) => {
+        console.log(data);
         res.end(data);
     });
 });
@@ -60,7 +82,7 @@ app.post("/addPet",(req,res) =>{
             
             res.end(JSON.stringify(data));
         } catch (error) {
-            res.status(500).json({msg:error});
+            res.status(500).send({msg:error});
         }
     });
 });
@@ -115,6 +137,11 @@ app.delete("/deletePet/:pet",(req,res) =>{
         }
         
     });
+});
+
+//todos los get que no manejemos nos mandan a la app
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 //el servidor escucha en el puerto establecido
