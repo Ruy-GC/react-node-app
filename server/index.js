@@ -12,34 +12,34 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 //config sql
-/*var mysql = require('mysql')
+var mysql = require('mysql')
 
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Pipo7274!",
+    password: "",
     database: 'pets'
   });
   
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-  });*/
+  });
 
 app.get("/api", (req, res) =>{
     res.json({message: "hello from server side"});
 });
 
 app.get("/pets",(req,res) => {
-    /*con.query("SELECT * FROM petdata", function (err, result) {
+    con.query("SELECT * FROM petdata", function (err, result) {
         if (err) throw err;
-        //res.json(JSON.stringify(result));
-    });*/
+        res.json(result);
+    });
     //callback function (err,data) =>
-    fs.readFile(__dirname + "/" + "pets.json","utf8",(err,data) => {
+    /*fs.readFile(__dirname + "/" + "pets.json","utf8",(err,data) => {
         console.log(data);
         res.end(data);
-    });
+    });*/
 });
 
 app.post("/addPet",(req,res) =>{
